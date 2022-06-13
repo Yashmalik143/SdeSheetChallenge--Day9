@@ -1,0 +1,23 @@
+
+void func(int i , int sum,vector<int> &num,int n,vector<int> &subsetsums)
+{
+    if(i==n) 
+    {  subsetsums.push_back(sum);
+        return;
+    }
+    
+    func(i+1,sum+num[i],num,n,subsetsums);
+    func(i+1,sum,num,n,subsetsums);
+    
+}
+
+vector<int> subsetSum(vector<int> &num)
+{
+    // Write your code here.`
+   vector<int>subsetsums;
+    int n = num.size();
+    func(0,0,num,n,subsetsums);
+    sort(subsetsums.begin(),subsetsums.end());
+    return subsetsums;
+    
+}
